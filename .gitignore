@@ -13,20 +13,11 @@ target/
 .springBeans
 .sts4-cache
 
-# Maven
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-
 ### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
-
-# MongoDB log files
-data/
 
 ### NetBeans ###
 /nbproject/private/
@@ -40,3 +31,37 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# Java specific files
+*.class
+*.jar
+*.war
+*.ear
+
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Ignore the mysql directory
+mysql/
+
+# Ensure the docker folder is not ignored
+!docker/
+
+!docker/mysql/
+
+# Maven specific files (backup, release, versions files)
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
