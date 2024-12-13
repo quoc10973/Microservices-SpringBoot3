@@ -45,3 +45,7 @@ Thumbs.db
 
 # Application specific files
 HELP.md
+
+# Docker data files
+docker/
+volume-data/
