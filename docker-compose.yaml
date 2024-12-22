@@ -37,7 +37,7 @@ services:
     image: prom/prometheus:v2.46.0
     command:
       - --enable-feature=exemplar-storage
-      - --config.file=/etc/prometheus/prometheus.yml
+      - --config.file=/etc/prometheus/prometheus.yaml
     volumes:
       - ./docker/prometheus/prometheus.yaml:/etc/prometheus/prometheus.yaml:ro
     ports:

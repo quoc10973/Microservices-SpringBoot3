@@ -22,6 +22,7 @@ public class SecurityConfig {
             "/api/docs/**",
             "/aggregate/**",
             "/api-docs/**",
+            "actuator/**"
     };
 
     @Bean
