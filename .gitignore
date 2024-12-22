@@ -48,3 +48,4 @@ HELP.md
 
 # Docker data files
 volume-data/
+docker/tempo/tempo-data
