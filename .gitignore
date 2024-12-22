@@ -47,5 +47,4 @@ Thumbs.db
 HELP.md
 
 # Docker data files
-docker/
 volume-data/
