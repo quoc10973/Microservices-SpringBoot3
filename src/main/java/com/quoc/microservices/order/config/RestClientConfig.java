@@ -1,6 +1,8 @@
 package com.quoc.microservices.order.config;
 
 import com.quoc.microservices.order.client.InventoryClient;
+import io.micrometer.observation.ObservationRegistry;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,17 +15,20 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 import java.time.Duration;
 
 @Configuration
+@RequiredArgsConstructor
 public class RestClientConfig {
 
     @Value("${inventory.service.url}") // Inject the inventory service URL from application.properties
     private String inventoryServiceUrl;
+    private final ObservationRegistry observationRegistry;
 
     @Bean
     public InventoryClient inventoryClient() {
         // Create a REST client to call the Inventory service
         RestClient restClient = RestClient.builder().
                 baseUrl(inventoryServiceUrl)
-                .requestFactory(getClientRequestFactory()) //
+                .requestFactory(getClientRequestFactory())
+                .observationRegistry(observationRegistry)
                 .build();
         var restClientAdapter = RestClientAdapter.create(restClient); // Create a REST client adapter for HttpServiceProxyFactory understand and use
         var httpServiceProxyFactory = HttpServiceProxyFactory.builderFor(restClientAdapter).build(); // build the HttpServiceProxyFactory with the REST client adapter
