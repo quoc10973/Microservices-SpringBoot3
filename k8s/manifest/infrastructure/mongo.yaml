@@ -23,18 +23,18 @@ spec:
             - name: MONGO_INITDB_ROOT_USERNAME
               valueFrom:
                 configMapKeyRef:
-                    name: mongo-config
-                    key: mongo_initdb_root_username
+                  name: mongo-config
+                  key: mongo_initdb_root_username
             - name: MONGO_INITDB_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                    name: mongo-secret
-                    key: mongo_initdb_root_password
+                  name: mongo-secret
+                  key: mongo_initdb_root_password
             - name: MONGO_INITDB_DATABASE
               valueFrom:
                 configMapKeyRef:
-                    name: mongo-config
-                    key: mongo_initdb_database
+                  name: mongo-config
+                  key: mongo_initdb_database
           volumeMounts:
             - name: mongo-data
               mountPath: /data/db
@@ -86,11 +86,11 @@ kind: PersistentVolumeClaim
 metadata:
   name: mongodb-pvc
 spec:
-    accessModes:
-        - ReadWriteOnce
-    resources:
-        requests:
-          storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
 ---
 # ConfigMap
 apiVersion: v1
@@ -98,7 +98,7 @@ kind: ConfigMap
 metadata:
   name: mongo-config
 data:
-    mongo_initdb_database: 'product-service2'
-    mongo_initdb_root_username: 'root'
+  mongo_initdb_database: 'product-service'
+  mongo_initdb_root_username: 'root'
 
 

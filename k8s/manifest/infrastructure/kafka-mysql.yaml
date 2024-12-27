@@ -92,7 +92,7 @@ data:
 ---
 apiVersion: v1
 data:
-  MYSQL_PASSWORD: cGFzc3dvcmQ=
+  MYSQL_PASSWORD: bXlzcWw=
   MYSQL_ROOT_PASSWORD: cm9vdA==
 kind: Secret
 metadata:
