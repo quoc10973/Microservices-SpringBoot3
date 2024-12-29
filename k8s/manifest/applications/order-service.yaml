@@ -46,6 +46,16 @@ spec:
                 configMapKeyRef:
                   key: SPRING_KAFKA_PRODUCER_PROPERTIES_SCHEMA_REGISTRY_URL
                   name: order-service-config
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: mysql_root_username
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: mysql_root_password
 ---
 apiVersion: v1
 kind: Service
